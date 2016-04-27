@@ -26,7 +26,7 @@ class DiscordAdapter extends Adapter
             @robot.logger.error "Disbot Error: No token specified, please set an environment variable named DISBOT_TOKEN"
             return
 
-        @discord = new Discord.Client
+        @discord = new Discord.Client autoReconnect: true
 
         @discord.on "ready", @.onready
         @discord.on "message", @.onmessage
