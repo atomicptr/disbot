@@ -52,9 +52,6 @@ class DiscordAdapter extends Adapter
 
         text = message.cleanContent
 
-        if message.channel.isPrivate
-            return # TODO: ignore private channels for now...
-
         @robot.logger.debug "Disbot - Received Message: " + text
         @receive new TextMessage(user, text, message.id)
 
