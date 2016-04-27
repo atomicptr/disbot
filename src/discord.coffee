@@ -30,14 +30,13 @@ class DiscordAdapter extends Adapter
 
         @discord.on "ready", @.onready
         @discord.on "message", @.onmessage
+        @discord.on "disconnected", @.ondisconnected
 
         @discord.loginWithToken @token
 
     onready: =>
-        @robot.logger.info "Disbot: Logged with User: " + @discord.user.username
+        @robot.logger.info "Disbot: Logged in as User: #{@discord.user.username}##{@discord.user.discriminator}"
         @robot.name = @discord.user.username.toLowerCase()
-
-        @robot.logger.info "Disbot: My name is " + @robot.name
 
         @emit "connected"
 
@@ -59,6 +58,8 @@ class DiscordAdapter extends Adapter
         @robot.logger.debug "Disbot - Received Message: " + text
         @receive new TextMessage(user, text, message.id)
 
+    ondisconnected: =>
+        @robot.logger.info "Disbot: Bot lost connection to the server, will auto reconnect soon..."
 
 exports.use = (robot) ->
     new DiscordAdapter robot
