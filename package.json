@@ -11,7 +11,7 @@
         "parent-require": "*"
     },
     "peerDependencies": {
-        "hubot": "2.18.x"
+        "hubot": ">=2.18.0"
     },
     "devDependencies": {
         "coffee-script": "*"

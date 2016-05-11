@@ -17,7 +17,7 @@ class DiscordAdapter extends Adapter
 
     reply: (envelope, messages...) ->
         for message in messages
-            @discord.sendMessage @rooms[envelope.room], "@#{envelope.user.name} #{message}"
+            @discord.sendMessage @rooms[envelope.room], "<@#{envelope.user.id}> #{message}"
 
     run: ->
         @token = process.env.DISBOT_TOKEN
