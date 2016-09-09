@@ -1,24 +1,27 @@
 {
     "name": "hubot-disbot",
-    "version": "0.1.4",
+    "version": "0.2.0",
     "description": "Hubot Adapter for discord.js",
     "main": "src/discord.coffee",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "dependencies": {
-        "discord.js": "7.0.x",
-        "parent-require": "*"
+        "discord.js": "9.0.x",
+        "parent-require": "^1.0.0"
     },
     "peerDependencies": {
-        "hubot": ">=2.18.0"
+        "hubot": ">=2.19.0"
     },
     "devDependencies": {
         "coffee-script": "*"
     },
+    "engines": {
+        "node": "6.5.x"
+    },
     "repository": {
-        "type": "git",
-        "url": "https://github.com/kasoki/disbot"
+    "type": "git",
+        "url": "https://github.com/atomicptr/disbot"
     },
     "author": "Christopher Kaster",
     "license": "MIT"
