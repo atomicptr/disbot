@@ -12,16 +12,17 @@ class DiscordAdapter extends Adapter
         @rooms = {}
 
     messageChannel: (channelId, message, callback) ->
+        robot = @robot
         sendMessage = (channel, message, callback) ->
             callback ?= (err, success) -> {}
 
             channel.sendMessage(message)
                 .then (msg) ->
-                    @robot.logger.debug "SUCCESS! Send message to channel #{channel.id}"
+                    robot.logger.debug "SUCCESS! Send message to channel #{channel.id}"
                     callback null, true
                 .catch (err) ->
-                    @robot.logger.error "Error while trying to send message #{message}"
-                    @robot.logger.error err
+                    robot.logger.error "Error while trying to send message #{message}"
+                    robot.logger.error err
                     callback err, false
 
         @robot.logger.debug "Disbot: Try to send message: \"#{message}\" to channel: #{channelId}"
